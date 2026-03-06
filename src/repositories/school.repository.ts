@@ -11,12 +11,19 @@ export async function addSchool(school: School) {
     return result;
 }
 
-export async function getSchoolsusingParameters(latitude: number, longitude: number ) {
+export async function getAllSchools() {
+    const connection = await connectDB();
+    const query = 'SELECT * FROM schools';
+    const [rows] = await connection.execute(query);
+    logger.info(`schools fetched successfully`);
+    return rows as School[];
+}
+
+export async function getSchoolsusingParameters(latitude: number, longitude: number) {
     const connection = await connectDB();
     const query = 'SELECT * FROM schools WHERE latitude = ? AND longitude = ?';
     const values = [latitude, longitude];
-    const [result] = await connection.execute(query, values);
-    logger.info(`schools fetched successfully: ${result}`);
-    return result;
+    const [rows] = await connection.execute(query, values);
+    logger.info(`schools fetched successfully`);
+    return rows as School[];
 }
-
