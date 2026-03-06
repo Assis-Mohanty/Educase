@@ -1,5 +1,4 @@
-//connect to mysql database
-import mysql from 'mysql2';
+import mysql from 'mysql2/promise';
 import { serverConfig } from './index';
 import logger from './logger.config';
 
