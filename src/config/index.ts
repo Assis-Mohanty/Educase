@@ -2,7 +2,11 @@
 import dotenv from 'dotenv';
 
 type ServerConfig = {
-    PORT: number
+    PORT: number,
+    DB_HOST: string,
+    DB_USER: string,
+    DB_PASSWORD: string,
+    DB_NAME: string
 }
 
 function loadEnv() {
@@ -13,5 +17,9 @@ function loadEnv() {
 loadEnv();
 
 export const serverConfig: ServerConfig = {
-    PORT: Number(process.env.PORT) || 3001
+    PORT: Number(process.env.PORT) || 3001,
+    DB_HOST: process.env.DB_HOST || 'localhost',
+    DB_USER: process.env.DB_USER || 'root',
+    DB_PASSWORD: process.env.DB_PASSWORD || '',
+    DB_NAME: process.env.DB_NAME || 'schools_db'
 };
