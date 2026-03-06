@@ -1,6 +1,6 @@
 import logger from "../config/logger.config";
 import { School } from "../models/school.models";
-import { addSchool, getAllSchools, getSchoolsusingParameters } from "../repositories/school.repository";
+import { addSchool, getAllSchools} from "../repositories/school.repository";
 
 export async function addSchoolService(school: School) {
     try {
